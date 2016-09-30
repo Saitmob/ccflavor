@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ccFlavor</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" id="css" href="../css/indexStyle.css">
+<link rel="stylesheet" id="css" href="../css/videoStyle.css">
+<!-- <link rel="stylesheet" id="css" href="css/style.css"> -->
+
+<!--[if lt IE 10]>
+<link rel="stylesheet" id="css" href="../css/ie.css">
+<![endif]-->
+<!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+<![endif]-->
+<style>
+
+@media screen and (max-width:980px){
+	.row-container{ width: 100%; }
+	.c-page-body{ width: 100%; }
+	.container-top-wrapper{width: 100%;}
+	.c-top-l{width: 100%; clear: both;color: red;}
+	.topic-preview-wrapper{ width: 100%; }
+	.video-box .video-item{ width: 22%; }
+	.video-box .video-item img{ width: 100%; height: 80%; }
+	.player-box{ width: 100%; }
+}
+</style>
+
+</head>
+<body>
+	 <!-- 页面头部 -->
+	<div class="header">
+		<div class="top-bar">
+			<div class="container">
+				<span class="pull-left"><a href="">首页</a></span>
+				<div class="pull-right"></div>
+				<ul class="fr">
+        			<li class="fl" id="login-btn"><a href="../register.html">登录</a></li>
+        			<li class="fl" id="register-btn"><a href="../register.html">注册</a></li>
+        		</ul>
+			
+			</div>
+		</div>
+		<div class="bottom-bar">
+			<div class="container">
+				<form class="navbar-form navbar-right search" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn search-btn">搜索</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!-- 页面主体 -->
+	<div class="c-page-body">
+		<!-- 主体菜单 -->
+		<div class="container">
+			<div class="index-nav">
+					<ul class="nav-menu">
+						<!-- <li class="menu-active"></li> -->
+						<li class="menu-item-list"><a href="../index.html" class="">首页</a></li>			
+						<li class="menu-item-list">
+							<a href="" class="menu-itme-a">动漫</a>
+							<ul>
+								<li class="sub-menu-item"><a href="" class="">番剧</a></li>
+								<li class="sub-menu-item"><a href="" class="">短片</a></li>
+								<li class="sub-menu-item"><a href="" class="">MAD</a></li>
+							</ul>
+							
+						</li>
+						<li class="menu-item-list">
+							<a href="" class="menu-itme-a">游戏</a>
+							<ul>
+								<li class="sub-menu-item"><a href="" class="">手游</a></li>
+								<li class="sub-menu-item"><a href="" class="">网游</a></li>
+								<li class="sub-menu-item"><a href="" class="">单机</a></li>
+							</ul>
+						</li>
+						<li class="menu-item-list">
+							<a href="" class="menu-itme-a">影视</a>
+							<ul>
+								<li class="sub-menu-item"><a href="" class="">电视剧</a></li>
+								<li class="sub-menu-item"><a href="" class="">电影</a></li>
+								<li class="sub-menu-item"><a href="" class="">综艺</a></li>
+							</ul>
+						</li>
+						<li  class="menu-item-list"><a href="" class="menu-itme-a">资讯</a></li>
+					</ul>	
+			</div>
+		</div>
+		<!-- 主体菜单 end -->
+		<!-- 主体内容 start -->
+		<div class="video-content">
+			<div class="container ">
+				<div class="video-link">
+					<h2>
+						<a href="../index.html">ccFlavor</a><i> > </i><span>超人vs琦玉</span>
+					</h2>
+				</div>
+				
+				
+				<!-- 播放器部分 start-->
+				<!-- <iframe width="100%" height=700 name=player frameborder=0 scrolling="no" src=player/demo2.htm></iframe> -->
+				<div class="player-box">
+					<iframe src="http://api.aikantv.cc/?url=http://v.pptv.com/show/TtHQTrYcjMotqxM.html?rcc_src=X2" width="1140" height="700" frameborder=0 scrolling="no"></iframe>
+				</div>
+				<!-- 播放器部分 end-->
+			</div>
+		</div>
+		<!-- 主体内容 end -->
+	</div>
+	<!-- 页面主体 end -->
+	<div class="c-footer">
+			<div class="row-container">
+				<div class="footer-link">
+					<ul>
+						<li>
+							<a href="">关于我们</a>
+						</li>
+						<li>
+							<a href="">友情链接</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-bottom">
+					<p class="text-center">本站仅是大自然的搬运工，并不提供视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源</p>
+					<p class="text-center">Copyright &copy; 2016 Saitmob<span> QQ 973043289</span></p>
+				</div>
+			</div>
+	</div>
+
+
+
+
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.nivo.slider.pack.js"></script>
+<script src="../js/jquery-Color-animate-1.60.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/getVersion.js"></script>
+<script>
+	$(document).ready(function(){
+		/*获取版本*/
+		var browser = getBrowserInfo() ;
+
+		var version;
+		function hoverJs(){
+			if (browser!=null && browser[0].substr(0,4)=='msie') {
+				// alert(browser[0].substr(5,6));
+				version = parseInt(browser[0].substr(5,6));
+				// alert(version);
+				if (version<10) {
+					// alert('ie 版本太低,部份效果将不显示！');
+					if(version<=8)//如果低于8则返回
+					{	
+
+						return false;
+					}
+				}
+			}
+			/*topbar*/
+				$('.top-bar a').hover(function(){
+					$(this).animate({backgroundColor:"#61d1f8",color:'#fff'},150);
+				},function(){
+
+					if ($(this).hasClass('menu-active')) { return;}
+					$(this).animate({backgroundColor:'transparent',color:'#656565'},100);
+				});
+				$('.nav-menu a').hover(function(){
+					$(this).stop();
+					$(this).animate({backgroundColor:"#fff",color:'#656565'},150);
+					$(this).css('box-shadow','0 0 20px #61d1f8');
+					// $(this).find('sub-menu-item').css('transform','rotateY(0deg)');
+				},function(){
+					$(this).css({'box-shadow':'none'});
+					if ($(this).hasClass('menu-active')) { return;}
+					$(this).stop();
+					$(this).animate({backgroundColor:'transparent',color:'#fff'},100);
+				});
+
+				//submenu
+				$('.menu-item-list').hover(function(){
+					$(this).css('overflow','visible');
+					$(this).find('ul').css('height','100%');
+					// $(this).find('ul').css('display','block');
+					var subMenuItems = $(this).find('li');
+					for(var i=0;i<subMenuItems.length;i++){
+						subMenuItems[i].style.transition = 'transform '+(200*i+200)+'ms';
+						subMenuItems[i].style.transform = 'rotateY(0deg)';
+					}
+				},function(){
+					/*修复移动端bug*/
+					$(document).on('tap',function(){
+						$(this).css('overflow','hidden');
+					})
+					$(this).css('overflow','hidden');
+					var subMenuItems = $(this).find('li');
+					for(var i=0;i<subMenuItems.length;i++){
+						subMenuItems[i].style.transition = 'transform '+(200*i+200)+'ms';
+						subMenuItems[i].style.transform = 'rotateY(90deg)';
+					}
+					$(this).find('ul').css('height','0px');
+				});
+		}
+		hoverJs();
+		window.onresize = function(){
+			var playerWidth = $('.player-box').width()
+			$('iframe').width(playerWidth);
+		}
+    });      
+
+
+	// function hoverAnimate($element,$attr1,$attr2,$speed){
+	// 	$($element).hover(function(){
+	// 		$(this).animate($attr1,$speed);
+	// 	},function(){
+	// 		$(this).animate($attr2,$speed);
+	// 	});
+	// }
+</script>
+</body>
+</html>

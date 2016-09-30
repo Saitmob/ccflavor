@@ -1,0 +1,245 @@
+<extend name="Public/base"/>
+    <block name="css">
+        <link rel="stylesheet" id="css" href="__PUBLIC__/css/indexStyle.css">
+        <link rel="stylesheet" href="__PUBLIC__/css/nivo-slider.css">
+        <link rel="stylesheet" href="__PUBLIC__/themes/default/default.css" type="text/css" media="screen" />
+    </block>
+
+    <block name="style">
+        <style>
+
+            .theme-default .nivo-controlNav{ padding:0px 0;}
+            @media screen and (max-width:980px){
+                .row-container{ width: 100%; }
+                .c-page-body{ width: 100%; }
+                .container-top-wrapper{width: 100%;}
+                .c-top-l{width: 100%; clear: both;color: red;}
+                .topic-preview-wrapper{ width: 100%; }
+                .section-left{width: 68%; text-align: center;}
+                .section-left .panel-body{text-align: center;}
+                .section-right{width: 28%;}
+                /*原移动端兼容*/
+                /*.video-box .video-item{ clear: both;*/
+                    /*position: relative;*/
+                    /*left:50%; margin-left: -100px; }*/
+                .video-box .video-item img{ width: 100%;}
+            }
+
+        </style>
+    </block>
+
+<block name="body">
+    <div class="index-container">
+        <div class="row-container">
+    <!-- 主要内容头部 -->
+    <div class="container-top-wrapper">
+        <div class="c-top-l fl">
+            <div class="panel panel-default">
+                <div class="panel-heading">热门资讯</div>
+
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        Cras justo odio
+                    </a>
+                    <a href="" class="list-group-item">Dapibus ac facilisis in</a>
+                    <a href="" class="list-group-item">Morbi leo risus</a>
+                    <a href="" class="list-group-item">Porta ac consectetur ac</a>
+                    <a href="" class="list-group-item">Vestibulum at eros</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="topic-preview-wrapper fr">
+            <div id="wrapper">
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+                        <a href="{:U('video/index',['vid'=>9])}">
+                        <img src="__PUBLIC__/images/topic_preview_01.jpg" data-thumb="/__PUBLIC__images/topic_preview_01.jpg" alt=""/></a>
+                        <a href="{:U('video/index',['vid'=>2])}"><img src="__PUBLIC__/images/topic_preview_02.jpg" data-thumb="images/topic_preview_02.jpg" alt=""
+                                        title="空之境界"/></a>
+                        <a href="{:U('video/index',['vid'=>7])}">
+                        <img src="__PUBLIC__/images/topic_preview_03.jpg" data-thumb="__PUBLIC__/images/topic_preview_03.jpg" alt="" data-transition="slideInLeft" title="灵能百分百"/></a>
+                        <a href="{:U('video/index',['vid'=>6])}">
+                        <img src="__PUBLIC__/images/topic_preview_04.jpg" data-thumb="__PUBLIC__/images/topic_preview_04.jpg" alt="" title="#htmlcaption"/></a>
+                    </div>
+                    <div id="htmlcaption" class="nivo-html-caption">
+                        <strong></strong> <em></em>  <a href="#">热诚传说X</a>.
+                    </div>
+                </div>
+                <div class="footer-banner" style="width:728px; margin:0 auto"></div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 主要内容头部 end -->
+
+    <!-- 单行内容开始 -->
+    <div class="row-container fl">
+
+        <!-- 左 -->
+        <div class="section-left">
+            <div class="panel panel-default">
+                <div class="panel-heading">番剧</div>
+                <div class="panel-body">
+                    <div class="video-box" id="video-box">
+                        <ul>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>1])}">
+                                    <img src="__PUBLIC__/images/video/vi_f_01.jpg" alt="">
+                                    <p>刀剑神域</p>
+                                    <div class="video-caption"><p><strong>亚丝娜！！</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>2])}">
+                                    <img src="__PUBLIC__/images/video/vi_f_02.jpg" alt="">
+                                    <p>空之境界</p>
+                                    <div class="video-caption"><p><strong>空之境界</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>6])}">
+                                    <img src="__PUBLIC__/images/video/vi_f_03.jpg" alt="">
+                                    <p>热诚传说X</p>
+                                    <div class="video-caption"><p><strong>热诚传说X</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>7])}">
+                                    <img src="__PUBLIC__/images/video/vi_f_04.jpg" alt="">
+                                    <p>灵能百分百</p>
+                                    <div class="video-caption"><p><strong>影山茂夫！</strong></p></div>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 右 -->
+        <div class="section-right">
+            <div class="rank-head">排行</div>
+            <ul class="rank-body">
+                <li>
+                    <i class="num n1">1</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>7])}">灵能百分百</a></div>
+                </li>
+                <li>
+                    <i class="num n2">2</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>6])}">热诚传说X</a></div>
+                </li>
+                <li>
+                    <i class="num n3">3</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>1])}">刀剑神域</a></div>
+                </li>
+                <li>
+                    <i class="num">4</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>2])}">空之境界</a></div>
+                </li>
+                <li>
+                    <i class="num">5</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+                <li>
+                    <i class="num">6</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+                <li>
+                    <i class="num">7</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 单行内容 end -->
+    <!-- 单行内容 start -->
+    <div class="row-container fl">
+
+        <!-- 左 -->
+        <div class="section-left">
+            <div class="panel panel-default">
+                <div class="panel-heading">动画</div>
+                <div class="panel-body">
+                    <div class="video-box">
+                        <ul>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>5])}">
+                                    <img src="__PUBLIC__/images/video/vi_d_01.jpg" alt="">
+                                    <p>西鲁vs梅路艾姆</p>
+                                    <div class="video-caption"><p><strong>蚁王！！</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>4])}">
+                                    <img src="__PUBLIC__/images/video/vi_d_02.jpg" alt="">
+                                    <p>超人vs琦玉</p>
+                                    <div class="video-caption"><p><strong>一击男！</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>8])}">
+                                    <img src="__PUBLIC__/images/video/vi_d_03.jpg" alt="">
+                                    <p>你永远不知道电脑对面和你聊天的是到底谁</p>
+                                    <div class="video-caption"><p><strong>你永远不知道电脑对面和你聊天的是到底谁</strong></p></div>
+                                </a>
+                            </li>
+                            <li class="video-item">
+                                <a href="{:U('video/index',['vid'=>9])}">
+                                    <img src="__PUBLIC__/images/video/vi_d_04.jpg" alt="">
+                                    <p>战斗吧，就算牺牲生命也在所不惜</p>
+                                    <div class="video-caption"><p><strong>战斗吧，就算牺牲生命也在所不惜</strong></p></div>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 右 -->
+        <div class="section-right">
+            <div class="rank-head">排行</div>
+            <ul class="rank-body">
+                <li title="战斗吧，就算牺牲生命也在所不惜">
+                    <i class="num n1">1</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>9])}">战斗吧，就算牺牲生命也在所不惜</a></div>
+                </li>
+                <li title="西鲁vs梅路艾姆">
+                    <i class="num n2">2</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>5])}">西鲁vs梅路艾姆</a></div>
+                </li>
+                <li title="你永远不知道电脑对面和你聊天的是到底谁">
+                    <i class="num n3">3</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>8])}">你永远不知道电脑对面和你聊天的是到底谁</a></div>
+                </li>
+                <li title="超人vs琦玉">
+                    <i class="num">4</i>
+                    <div class="title"><a href="{:U('video/index',['vid'=>4])}">超人vs琦玉</a></div>
+                </li>
+                <li title="甲铁城的卡巴内瑞">
+                    <i class="num">5</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+                <li>
+                    <i class="num">6</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+                <li>
+                    <i class="num">7</i>
+                    <div class="title"><a href="">甲铁城的卡巴内瑞</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+        </div>
+    </div>
+</block>
+<block name="javascript">
+    <script>
+        /*img轮播*/
+        $('#slider').nivoSlider();
+    </script>
+
+</block>

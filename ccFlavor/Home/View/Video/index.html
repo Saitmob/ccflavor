@@ -1,0 +1,167 @@
+<extend name="Public/base"/>
+    <block name="css">
+        <link rel="stylesheet" id="css" href="__PUBLIC__/css/indexStyle.css">
+        <link rel="stylesheet" id="css" href="__PUBLIC__/css/videoStyle.css">
+    </block>
+
+    <block name="style">
+        <style>
+            @media screen and (max-width:980px){
+                .row-container{ width: 100%; }
+                .c-page-body{ width: 100%; }
+                .video-content .container{width: 100%;}
+                .container-top-wrapper{width: 100%;}
+                .c-top-l{width: 100%; clear: both;color: red;}
+                .topic-preview-wrapper{ width: 100%; }
+
+                .video-box .video-item{ width: 22%; }
+                .video-box .video-item img{ width: 100%; height: 80%; }
+                .player-box{ width: 100%; height:100%;}
+            }
+        </style>
+
+    </block>
+
+<block name="body">
+    <!-- 主体内容 start -->
+    <block name="body">
+        <div class="video-content">
+            <div class="container ">
+                <div class="video-link">
+                    <h2>
+                        <a href="../index.html">ccFlavor</a><i> > </i><span>{$video['videoname']}</span>
+                    </h2>
+                </div>
+                <!-- 视频简介 start -->
+                <?php if($video['category']=='番剧'):?>
+
+                <div class="video-info">
+                    <div class="video-preview fl">
+                        <img src="__PUBLIC__/{$pic}" alt="">
+                    </div>
+                    <div class="info-content">
+                        <div class="info-head"><h1>{$video['videoname']}</h1></div>
+                        <div class="info-body">
+                            <div class="update-time"><p><b>开播时间：{:substr($video['videoupdate'],0,7)}&nbsp;&nbsp;集数：{$video['episode_total']} </b><span class="badge"><i>已完结</i></span> </p></div>
+                            <div class="info-desc"><span class="badge"><i>简介</i></span><br><span id="info-desc">{$video['videoinfo']}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <?php endif;?>
+                <!-- 视频简介 end -->
+                <!--<table border="1">-->
+
+                    <!--<foreach name="list" item="obj">-->
+                        <!--<tr><td>id</td><td>vid</td></tr>-->
+                        <!--<tr><td>id{$obj['id']}</td><td>{$obj.vid}</td></tr>-->
+
+                    <!--</foreach>-->
+                <!--</table>-->
+                <!--{$page}-->
+                <!-- 集数部分 start -->
+                <div class="video-list">
+                    <!-- <div class="list-content-pre"></div>
+                    <div class="list-part-wrapper"></div> -->
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#list-part01" data-toggle="tab">{$videos[0].episode_num}-<?php echo (($count>=6)?6:$count); ?></a></li>
+                        <?php for($i=1;$i<$count/6;$i++): ?>
+                            <li role="presentation"><a href="#list-part0{$i+1}" data-toggle="tab">{$i*6+1}-<?php if(($i*6+6)>$count) echo $count;else?>{$i*6+6}</a></li>
+                        <?php endfor;?>
+
+                        <!--<li role="presentation"><a href="#list-part02" data-toggle="tab">10-12</a></li>-->
+                    </ul>
+                    <div class=" list-part row">
+                        <!-- 标签内容 start -->
+                        <div class="tab-content">
+                                <div class="tab-pane active" id="list-part01">
+                                    <?php for($i=0;$i<(($count>6)?6:$count);$i++):?>
+                                        <div class="list-group col-md-4">
+                                            <a href="{:U('video/player',['vid'=>$video['id'],'num'=>$i+1])}" class="list-group-item " target="player">
+                                                <em><span class="badge"><i>第{$videos.$i.episode_num}话</i></span>{$videos.$i.episode_name}</em>
+                                            </a>
+                                        </div>
+                                    <?php endfor;?>
+                                </div>
+                            <?php for($i=1;$i<$count/6;$i++):?>
+                            <div class="tab-pane" id="list-part0{$i+1}">
+                                <?php for($j=$i*6;$j<$i*6+6;$j++):?>
+                                <!--因为$j为当前集数-1，所以j等于总集数时，不再循环-->
+                                <?php if($j==$count) break;?>
+                                <div class="list-group col-md-4">
+
+                                    <a href="{:U('video/player',['vid'=>$video['id'],'num'=>$j+1])}" class="list-group-item " target="player">
+                                        <em><span class="badge"><i>第{$videos.$j.episode_num}话</i></span>{$videos.$j.episode_name}</em>
+                                    </a>
+
+                                </div>
+                                <?php endfor;?>
+                            </div>
+                            <?php endfor;?>
+
+                        </div>
+                        <!-- 标签内容结束 -->
+                    </div>
+                </div>
+                <!-- 集数部分 end -->
+                <!-- 播放器部分 start-->
+                <div class="player-box">
+                    <iframe src="{$src?$src:$default_src}" width="100%" height="100%" id="iframeSon" frameborder=0 scrolling="no" name="player"  marginheight="0" marginwidth="0"></iframe>
+                </div>
+                 <!--播放器部分 end-->
+                <!--评论框 start-->
+                <!--<div class="comment-content">-->
+                    <!-- 多说评论框 start -->
+                    <!--<div class="ds-thread" data-thread-key="1" data-title="刀剑神域" data-url="http://localhost/ccflavor/index.php/video/index/vid/1.html"></div>-->
+                <!-- 多说评论框 start -->
+                <div class="ds-thread" data-thread-key="{$video['id']}" data-title="刀剑神域" data-url="{:U('Video/index',['vid'=>$video['id']])}"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                    var duoshuoQuery = {short_name:"saitmob"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                </script>
+                <!-- 多说公共JS代码 end -->
+                    <!-- 多说评论框 end -->
+                <!--</div>-->
+                <!--评论框 end-->
+            </div>
+        </div>
+    </block>
+
+    <!-- 主体内容 end -->
+</block>
+<block name="javascript">
+    <script>
+
+//            if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+//                var infoDesc = document.getElementById('info-desc');
+//                infoDesc.innerHTML = infoDesc.innerHTML.substr(0,30)+' ......';
+//            }
+
+
+        var width = document.body.clientWidth?document.body.clientWidth:document.documentElement.clientWidth;
+        if(width<1140&&width>300){
+            $('player-box').height(width*0.8);
+            $('iframe').height(width*0.7);
+
+        }
+        window.onresize = function(){
+            width = document.body.clientWidth?document.body.clientWidth:document.documentElement.clientWidth;
+            if(width<1140&&width>300){
+
+                $('player-box').height(width*0.65);
+                $('iframe').height(width*0.65);
+            }
+        }
+
+    </script>
+</block>
+

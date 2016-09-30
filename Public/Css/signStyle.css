@@ -1,0 +1,41 @@
+	html,body{width: 100%; background: none;}
+	a:link{text-decoration:none;}
+	a:visited{text-decoration:none;}
+	a:active{text-decoration:none;}
+	/*header*/
+	.header{background: url(../images/header_bg.jpg) no-repeat;height: 170px;width: 100%; position: relative; box-shadow: 0 0 30px #FFFFFF;}
+	.row-container{width: 1140px; margin: 0 auto;}
+	.top-bar{background: url(../images/top_bar_bg.jpg) no-repeat; height: 46px; }
+	.top-bar a{display: block;  line-height: 46px; text-align: center;  width: 60px;}
+	.search{ margin-top: 80px; }
+	.search-btn{background-color: #38bceb;color: #fff;}
+
+
+/*页面主体*/
+.body-bg{ background: url(../images/sign_in_up_bodyBg_02.jpg) no-repeat; background-size: 100%; position: fixed; left: 0;top:30px;height: 100%; width: 100%; z-index: -2;}
+.c-page-body{width:1140px;margin: 0 auto;color: #fff; position: relative; }
+.c-main-container{ width: 100%; height: 500px;display:block; /*background: url(../images/sign_in_up_bg.jpg) no-repeat ;*/  position: relative;}
+.c-main-container p{position: relative; z-index: 1; margin:10px auto; padding-left: 10px; }
+/*注册框*/
+.sign-in-up-box{ position: absolute; left: 50%; margin-left:-200px; top: 100px; width: 400px; height: 300px;padding: 10px;  }
+.box-bg{ background-color: #38bceb;opacity: 0.2;position: absolute;width: 110%;height: 110%; left: -10px;top:-10px; border-radius: 10px; z-index: 0;}
+.sign-in-up-box .input-group{ margin:40px auto; }
+.input-wrapper{ position: relative; z-index: 1; margin: 20px auto; width: 400px; height: 60px;}
+.input-wrapper .form-control{ display: inline-block; width: 240px; }
+.input-wrapper span{ display: inline-block; width: 100px; text-align: center; }
+/*.input-grout .input-group-addon{ width: 100px; text-align: center; }*/
+.input-wrapper p{text-align: center; visibility: hidden;}
+
+.register-btn{ border: 2px solid #fff; border-radius: 5px; background: none; color: #fff; width: 80px; height: 40px; position: absolute;top: 350px;left: 200px; margin-left: -30px;}
+.register-btn:hover{ color: #38bceb; border: 2px solid #38bceb;}
+.input-wrapper .err{ border: 2px solid #fff; border-radius: 5px; background: none;  width:250px; height: 40px;position: absolute;left: 460px; top: 0; display: none; text-align: center;line-height: 32px;}
+
+/*footer*/
+/*.jumbotron{ margin-bottom: 0; padding-bottom: 5px;}*/
+.c-footer{ margin-top: 100px; position: relative; width: 100%; height: 200px;float: left; background-color: #6ED0F3;padding-top: 40px;color: #fff;}
+.c-footer a{color: #fff;}
+.footer-link{text-align: center;height: 100px;}
+.footer-link ul{text-align: center;display: inline-block;}
+.footer-link ul li{float: left; width: 200px; margin-right: 60px;}
+.footer-bottom{clear: both;}
+.footer-bottom p{ font-size: 0.9em; }

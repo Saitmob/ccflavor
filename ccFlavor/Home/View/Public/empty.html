@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Comatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
+    <title><block name="title">ccFlavor</block></title>
+    <link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/reset.css">
+    <block name="css"></block>
+
+    <!--[if lt IE 10]>
+    <link rel="stylesheet" id="css" href="__PUBLIC__/css/ie.css">
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    <block name='style'>
+
+    </block>
+    <style>
+        @media screen and (max-width:980px){
+            .row-container{ width: 100%; }
+            .bottom-bar { padding: 0 50px;}
+            .row-container .navbar-form{ margin-top: 20px;}
+            .c-page-body{ width: 100%;  padding: 0 15px;}
+            .c-footer{padding: 20px 20px;}
+        }
+    </style>
+</head>
+<body>
+<!-- 页面头部 -->
+<div class="header">
+    <div class="top-bar">
+        <div class="row-container">
+            <span class="pull-left" id="shouye"><a href="{:U('index/index')}">首页</a></span>
+            <div class="pull-right"></div>
+            <ul class="fr">
+                <li class="fl" id="login-btn"><a href="{:U('index/register')}">登录</a></li>
+                <li class="fl" id="register-btn"><a href="{:U('index/register')}">注册</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="row-container">
+            <form class="navbar-form navbar-right search" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn search-btn">搜索</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- 页面主体 -->
+<block name="register-content"></block>
+<!-- 页面主体 end -->
+<div class="c-footer">
+    <div class="row-container">
+        <div class="footer-link">
+            <ul>
+                <li>
+                    <a href="">关于我们</a>
+                </li>
+                <li>
+                    <a href="">友情链接</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p class="text-center">本站仅是大自然的搬运工，并不提供视听上传服务，所有内容均来自视频分享站点所提供的公开引用资源</p>
+            <p class="text-center">Copyright &copy; 2016 Saitmob<span> QQ 973043289</span></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.LoadImage.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.nivo.slider.pack.js"></script>
+<script src="__PUBLIC__/js/jquery-Color-animate-1.60.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/getVersion.js"></script>
+<block name="javascript"></block>
+<script>
+
+    $(document).ready(function(){
+        if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+            $('body').css('font-size','10px');
+        }
+        // }
+        /*图片预加载*/
+        // $('#slider img').LoadImage(true,800,600,"images/loading.gif");
+        $('.video-item img').LoadImage(true,200,140,"images/loading.gif");
+        var bg = new Array();
+        function loadBg(){
+            for (i = 0; i < loadBg.arguments.length; i++) {
+                bg[i] = new Image();
+                bg[i].src = loadBg.arguments[i];
+            }
+        }
+        loadBg('images/header_bg.jpg','images/sign_in_up_bodyBg_02.jpg');
+        /*获取版本*/
+        var browser = getBrowserInfo() ;
+
+        var version;
+        function hoverJs(){
+            if (browser!=null && browser[0].substr(0,4)=='msie') {
+                // alert(browser[0].substr(5,6));
+                version = parseInt(browser[0].substr(5,6));
+                // alert(version);
+                if (version<10) {
+                    // alert('ie 版本太低,部份效果将不显示！');
+                    if(version<=8)//如果低于8则返回
+                    {
+
+                        return false;
+                    }
+                }
+            }
+            /*topbar*/
+            $('.top-bar a').hover(function(){
+                $(this).animate({backgroundColor:"#61d1f8",color:'#fff'},150);
+            },function(){
+
+                if ($(this).hasClass('menu-active')) { return;}
+                $(this).animate({backgroundColor:'transparent',color:'#656565'},100);
+            });
+            $('.nav-menu a').hover(function(){
+                $(this).stop();
+                $(this).animate({backgroundColor:"#fff",color:'#656565'},150);
+                $(this).css('box-shadow','0 0 20px #61d1f8');
+                // $(this).find('sub-menu-item').css('transform','rotateY(0deg)');
+            },function(){
+                $(this).css({'box-shadow':'none'});
+                if ($(this).hasClass('menu-active')) { return;}
+                $(this).stop();
+                $(this).animate({backgroundColor:'transparent',color:'#fff'},100);
+            });
+
+            //submenu
+            $('.menu-item-list').hover(function(){
+                $(this).css('overflow','visible');
+                $(this).on('tap',function(){
+                    $(this).css('overflow','visible');
+                })
+                // $(this).find('ul').css('visibility','visible');
+                // $(this).find('ul').css('display','block');
+                var subMenuItems = $(this).find('li');
+                for(var i=0;i<subMenuItems.length;i++){
+                    subMenuItems[i].style.transition = 'transform '+(200*i+200)+'ms';
+                    subMenuItems[i].style.transform = 'rotateY(0deg)';
+                }
+            },function(){
+
+                var subMenuItems = $(this).find('li');
+                for(var i=0;i<subMenuItems.length;i++){
+                    subMenuItems[i].style.transition = 'transform '+(200*i+200)+'ms';
+                    subMenuItems[i].style.transform = 'rotateY(90deg)';
+                }
+
+            });
+
+            /*video-box*/
+            $('.video-item').hover(function(){
+                var caption = $(this).find('.video-caption');
+                caption.stop(false,true);
+                $(this).css('box-shadow','0 0 20px #61d1f8');
+                $(this).find('p:first').css('color','#EF6565');
+                caption.animate({height:'60px'},300);
+
+            },function(){
+                var caption = $(this).find('.video-caption');
+                $(this).find('img+p').css('color','#656565');
+                $(this).css({'box-shadow':'none'});
+                caption.stop().animate({height:'0px'},300);
+            })
+        }
+        hoverJs();
+        if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+            $('body').css('font-size','10px');
+        }
+
+
+
+    });
+
+
+</script>
+</body>
+</html>

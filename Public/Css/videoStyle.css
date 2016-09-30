@@ -1,0 +1,26 @@
+.video-content{margin-top: 40px;}
+.video-content .container{padding: 0;width: 1140px;}
+
+.video-link{/*background-color: #89D1EB;*/height: 36px; line-height: 36px;padding-left: 10px;width: 100%; margin-bottom: 20px;}
+.video-link h2 span{ font-size: 12px; }
+.video-link h2 a{ line-height: 36px; color: #09A5DD;}
+.video-info{position: relative;/*background: url(../images/video/vid_info_bg_jtc_01.jpg) no-repeat;*/height: 280px;}
+/*简介内容*/
+.video-preview{margin-right: 30px;}
+.video-preview img{width: 198px; height: 280px;}
+.info-content{ position: absolute; left: 230px; height:310px;overflow:hidden; }
+.info-head h1{color: #F35B5B;font-size: 1.3em; font-weight: bold;margin:10px 0;}
+.info-body {  }
+.update-time { margin: 20px 0; }
+.update-time b{ margin-right: 10px; }
+ .badge{ background-color:#F35B5B;margin-right: 10px;}
+ .badge i{padding: 3px;}
+.info-desc{line-height: 30px;}
+/*集数内容*/
+.video-list{ margin: 20px 0; }
+.tab-content .list-group { margin: 0 auto;}
+.player-box{ width: 1140px; height: 740px; }
+/*rest bt*/
+.row{margin: 0;}
+.list-part{ padding: 10px;}
+.list-part .badge i{ letter-spacing: 2px; }

@@ -1,0 +1,65 @@
+.c-sidebar {
+  z-index: 200;
+  width: 40px;
+  height: auto;
+  padding: 0;
+}
+.c-sidebar a {
+  color: #38bceb;
+}
+.c-sidebar a:hover .iconfont {
+  top: -40px;
+}
+.c-sidebar a:hover .sidebar-tips {
+  top: 0;
+}
+
+.sidebar-item {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  line-height: 40px;
+  height: 40px;
+}
+.sidebar-item .sidebar-btn {
+  position: absolute;
+}
+.sidebar-item .iconfont {
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.sidebar-item .sidebar-tips {
+  top: 40px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding-top: 4px;
+  padding-left: 1px;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 1.2em;
+  background-color: #38bceb;
+  color: #fff;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/*# sourceMappingURL=sidebar.css.map */
